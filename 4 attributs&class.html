@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.txtRed{ color: red; }
+	.txtBlue{ color: blue; }
+	.txtGreen{ color: Green; }
+</style>
+<body>
+<div id="root">
+	 
+	<button type="button"  v-bind:title="title" >hover me</button>
+
+	<h1 :class="className">Some text</h1>
+<button type="button"  v-on:click="red" class="txtRed" >Red</button>		
+<button type="button"  v-on:click="blue" class="txtBlue" >Blue</button>		
+<button type="button"  v-on:click="green" class="txtGreen">Green</button>		
+</div>
+<script src="https://unpkg.com/vue"></script>
+
+<script >
+	
+	var app = new Vue({
+	
+		el: "#root",	
+		data:{
+		title:"changed from Vue Js",
+		className:''
+
+		}
+		,
+		methods:{
+			red(){
+				this.className='txtRed';
+			},
+			blue(){
+				this.className='txtBlue';
+			},
+			green(){
+				this.className='txtGreen';
+			}
+		}
+		// mounted(){
+		// 	alert('ready to work');//work like document.ready
+		// }
+	});
+</script>
+</body>
+</html>

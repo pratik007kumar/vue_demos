@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.txtRed{ color: red; }
+	.txtBlue{ color: blue; }
+	.txtGreen{ color: Green; }
+</style>
+<body>
+<div id="root">
+	<h4>All Tasks</h4>	 
+	<ul>
+		<li v-for="task in tasks" v-text="task.name"></li>
+	</ul>
+	<h4>Todo</h4>	 
+	<ul>
+		<li v-for="task in notdonetasks"  v-text="task.name"></li>
+	</ul>
+
+
+</div>
+<script src="https://unpkg.com/vue"></script>
+
+<script >
+	
+	var app = new Vue({
+	
+		el: "#root",	
+		data:{
+		tasks:[
+		{name:"task 1",status:true},
+		{name:"task 2",status:false},
+		{name:"task 3",status:false},
+		{name:"task 4",status:true},
+		{name:"task 5",status:false},
+		{name:"task 6",status:true},
+		{name:"task 7",status:false},
+		],
+		 
+		}
+		,
+		methods:{
+			 
+		}
+		,
+		computed:{
+
+			notdonetasks(){
+				return this.tasks.filter(task =>! task.status)
+			}
+		}
+		// mounted(){
+		// 	alert('ready to work');//work like document.ready
+		// }
+	});
+</script>
+</body>
+</html>

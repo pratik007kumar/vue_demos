@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="root">
+	<ul>
+		<li v-for="name in names" v-text="name"></li>
+	</ul>
+
+	<input type="text" id="input" v-model="newname" ></input>
+	<button type="button" id="button" v-on:click="addName">Add New Name</button>
+	
+</div>
+<script src="https://unpkg.com/vue"></script>
+
+<script >
+	
+	var app = new Vue({
+	
+		el: "#root",	
+		data:{
+			newname:'',
+			names:['name 1', 'name 2','name 3'],
+		}
+		,
+		methods:{
+			addName(){
+			 
+				this.names.push(this.newname);
+				this.newname='';
+			}
+		}
+		// mounted(){
+		// 	alert('ready to work');//work like document.ready
+		// }
+	});
+</script>
+</body>
+</html>
